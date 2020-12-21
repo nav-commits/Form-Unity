@@ -11,7 +11,7 @@ public class Logic : MonoBehaviour
     public InputField password;
     public Text resultText;
 
-
+   
 
     Firebase.Auth.FirebaseAuth auth;
 
@@ -56,9 +56,23 @@ public class Logic : MonoBehaviour
 
 
     public void SignIn()
+
+        // code to verify if user puts in email or password
     {
-        Debug.LogError("hello");
-        resultText.text = "helllo user";
+        if (email.text == "" || password.text == "")
+        {
+            resultText.text = "Not signed in";
+        }
+        else
+        {
+            resultText.text = "hello user";
+        }
+
+
+
+
+
+       
 
         auth.SignInWithEmailAndPasswordAsync(email.text.ToString(), password.text.ToString()).ContinueWith(task => {
             if (task.IsCanceled)
