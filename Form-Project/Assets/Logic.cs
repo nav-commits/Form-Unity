@@ -10,6 +10,7 @@ public class Logic : MonoBehaviour
     public InputField email;
     public InputField password;
     public Text resultText;
+    
 
    
 
@@ -30,7 +31,11 @@ public class Logic : MonoBehaviour
     }
 
     public void SignUp()
+        
     {
+
+ 
+
         auth.CreateUserWithEmailAndPasswordAsync(email.text.ToString(), password.text.ToString()).ContinueWith(task => {
             if (task.IsCanceled)
             {
@@ -67,11 +72,6 @@ public class Logic : MonoBehaviour
         {
             resultText.text = "hello user";
         }
-
-
-
-
-
        
 
         auth.SignInWithEmailAndPasswordAsync(email.text.ToString(), password.text.ToString()).ContinueWith(task => {
